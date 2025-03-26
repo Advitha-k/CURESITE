@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Hospitals</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #cce6ff; /* Light blue background */
+            color: #333; /* Dark gray text color */
+        }
+        header {
+            background-color: #0077cc; /* Dark blue header background */
+            color: #fff; /* White header text color */
+            padding: 10px 0;
+            text-align: center;
+        }
+        h1 {
+            text-align: center;
+        }
+        .hospital-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .hospital {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        .hospital img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+        .hospital h2 {
+            margin-top: 0;
+        }
+        .hospital p {
+            margin-bottom: 10px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #0077cc;
+            color: #fff;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nearby Hospitals</h1>
+    </header>
+    <div class="hospital-list">
+        <div class="hospital">
+            <h2>YASHODHA HOSPITALS</h2>
+            <img src="https://tse1.mm.bing.net/th?id=OIP.yXAFFIn2NOhKbMFkB82AGwHaEH&pid=Api&P=0&h=180" alt="Doctor Profile Picture">
+            <p>Location: JNTU to Hitec City Road, Kothaguda, Hyderabad, Telangana 500084</p>
+            <p>Distance: 2 Km from your current location</p>
+            <a href="https://www.google.co.in/maps/place/Yashoda+Hospitals+Hitec+City/@17.4623188,78.3823375,17z/data=!3m1!4b1!4m6!3m5!1s0x3bcb917df77e5ba9:0xa47221c5deef3da2!8m2!3d17.4623137!4d78.3849124!16s%2Fg%2F11h9x8zchq?entry=ttu" class="btn" target="_blank">Get Directions</a>
+            <a href="https://yashodahospitals.com/appointment" class="btn" target="_blank">Book Appointment</a>
+        </div>
+        <div class="hospital">
+            <h2>KIMS HOSPITAL</h2>
+            <img src="https://tse4.mm.bing.net/th?id=OIP.9abchmb6iWO-wjJhG0dGUwHaHa&pid=Api&P=0&h=180" alt="Doctor Profile Picture">
+            <p>Location: PQR Avenue, DEF Town</p>
+            <p>Distance: 1 Km from your current location</p>
+            <a href="https://maps.google.com/maps?q=KIMS+Hospital,+PQR+Avenue,+DEF+Town" class="btn" target="_blank">Get Directions</a>
+            <a href="https://kimshospitals.com/book-appointment" class="btn" target="_blank">Book Appointment</a>
+        </div>
+        <div class="hospital">
+            <h2>APPOLO HOSPITALS</h2>
+            <img src="https://tse2.mm.bing.net/th?id=OIP.g8YH9ypKUjvvII-tcEHF_wHaHk&pid=Api&P=0&h=180" alt="Doctor Profile Picture">
+            <p>Location: PQR Avenue, DEF Town</p>
+            <p>Distance: 2.1 Km from your current location</p>
+            <a href="https://maps.google.com/maps?q=Apollo+Hospitals,+PQR+Avenue,+DEF+Town" class="btn" target="_blank">Get Directions</a>
+            <a href="https://apollohospitals.com/appointment" class="btn" target="_blank">Book Appointment</a>
+        </div>
+        <div class="hospital">
+            <h2>HOLISTIC HOSPITAL</h2>
+            <img src="https://tse2.mm.bing.net/th?id=OIP.9USZkaW-X_kx4W_M6RrVZwAAAA&pid=Api&P=0&h=180" alt="Doctor Profile Picture">
+            <p>Location: PQR Avenue, DEF Town</p>
+            <p>Distance: 3.6 Km from your current location</p>
+            <a href="https://maps.google.com/maps?q=Holistic+Hospital,+PQR+Avenue,+DEF+Town" class="btn" target="_blank">Get Directions</a>
+            <a href="https://holistichospital.com/appointment" class="btn" target="_blank">Book Appointment</a>
+        </div>
+    </div>
+    <!-- Add more hospitals as needed -->
+    <div class="back-button">
+        <a href="index.html#searchhospitalsSection">Go Back</a>
+    </div>
+</body>
+</html>

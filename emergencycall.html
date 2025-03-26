@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emergency - CURESITE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-n8hjdmYfLDwxBb4vgI6b0W5L33q1yQ5/sSCfykGQb50/94yUO4IMoHfvm4DQTfS9xFrTIvgEeu1e6G7JgX4P5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f1f1;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            background: linear-gradient(to right, #0077cc, #00c6ff);
+        }
+        header {
+            background-color: #0077cc;
+            color: #fff;
+            padding: 20px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        header img {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        nav {
+            background-color: #005580;
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 16px;
+        }
+        nav a:hover {
+            background-color: #003d66;
+            border-radius: 5px;
+        }
+        section {
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        .emergency-button {
+            background-color: #ff3333;
+            color: #fff;
+            border: none;
+            padding: 20px 40px;
+            font-size: 22px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .emergency-button:hover {
+            background-color: #cc0000;
+        }
+        .service-info {
+            margin-top: 30px;
+        }
+        .service-info h3 {
+            color: #0077cc;
+        }
+        .contact-info {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .contact-info p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+        .contact-info a {
+            color: #0077cc;
+        }
+        .footer-text {
+            font-size: 14px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPDUc1HwOdjxZSnITlZZsR7ziU1KT26tirbD_l44ikAQ&s" alt="CURESITE Logo">
+        <h1>CURESITE Emergency</h1>
+    </header>
+    
+    <section>
+        <h2 style="font-size: 28px; color: #333;">Emergency Services</h2>
+        <p style="font-size: 18px; color: #666;">If you are experiencing an emergency, we are here to help. Use the options below to get the assistance you need immediately.</p>
+        
+        <!-- Call for Ambulance button -->
+        <button class="emergency-button" onclick="callAmbulance()">Call Ambulance</button>
+
+        <!-- Other Emergency Services -->
+        <div class="service-info">
+            <h3>Other Emergency Services:</h3>
+            <p>If you need assistance with any other emergency services, such as urgent medical consultation or nearby healthcare facilities, click the buttons below:</p>
+            <button onclick="window.location.href = 'post_illness.html';" style="padding: 15px 30px; font-size: 16px; margin-top: 10px; background-color: #0077cc; color: white; border-radius: 5px;">Post Your Illness Online</button>
+            <button onclick="window.location.href = 'chatbot.html';" style="padding: 15px 30px; font-size: 16px; margin-top: 10px; background-color: #0077cc; color: white; border-radius: 5px;">Talk to a Chatbot</button>
+            <button onclick="window.location.href = 'consult_doctor.html';" style="padding: 15px 30px; font-size: 16px; margin-top: 10px; background-color: #0077cc; color: white; border-radius: 5px;">Consult a Doctor</button>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="contact-info">
+            <h3>Contact Details for Immediate Assistance:</h3>
+            <p><strong>Ambulance Helpline:</strong> 102</p>
+            <p><strong>Emergency Medical Services:</strong> 911</p>
+            <p><strong>Email:</strong> <a href="mailto:support@curesite.com">support@curesite.com</a></p>
+            <p><strong>Visit Our Office:</strong> 123 Health St., City, Country</p>
+        </div>
+    </section>
+
+    <footer>
+        <p class="footer-text">&copy; 2025 CURESITE. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function callAmbulance() {
+            alert("Calling Ambulance..."); // Placeholder action, can integrate actual call functionality if needed
+        }
+    </script>
+</body>
+</html>

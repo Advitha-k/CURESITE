@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Home Visit</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0077cc;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"], textarea {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #0077cc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #005580;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Request a Doctor Home Visit</h1>
+    </header>
+    <div class="container">
+        <h2>Provide Your Details</h2>
+        <form id="homeVisitForm">
+            <label for="patientName">Patient's Name:</label>
+            <input type="text" id="patientName" name="patientName" placeholder="Enter your name" required>
+
+            <label for="patientAge">Patient's Age:</label>
+            <input type="number" id="patientAge" name="patientAge" placeholder="Enter your age" required>
+
+            <label for="homeAddress">Home Address:</label>
+            <textarea id="homeAddress" name="homeAddress" rows="4" placeholder="Enter your complete address" required></textarea>
+
+            <button type="submit">Request Doctor</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('homeVisitForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission to a server for now
+            alert("Your request for a doctor's home visit has been submitted successfully!");
+        });
+    </script>
+</body>
+</html>
+get your treat at home code

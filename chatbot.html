@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Chatbot</title>
+
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #89cff0, #0077cc);
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Main Chatbot Container */
+        .chatbot-container {
+            max-width: 600px;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h2 {
+            text-align: center;
+            color: #0077cc;
+            margin-bottom: 10px;
+            font-size: 2rem;
+            animation: slideDown 1s ease-out;
+        }
+
+        /* Chatbot Image */
+        .chatbot-image {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .chatbot-image img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            animation: bounce 2s infinite;
+        }
+
+        /* Chat History */
+        .chat-history {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 10px;
+            max-height: 250px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .user-message, .bot-message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .user-message {
+            text-align: right;
+            background-color: #0077cc;
+            color: white;
+            align-self: flex-end;
+        }
+
+        .bot-message {
+            text-align: left;
+            background-color: #e0e0e0;
+            color: #333;
+            align-self: flex-start;
+        }
+
+        /* Input Field and Button */
+        input[type="text"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background: linear-gradient(90deg, #0077cc, #005580);
+            color: white;
+            border: none;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+
+        input[type="submit"]:hover {
+            background: linear-gradient(90deg, #005580, #0077cc);
+        }
+
+        /* Back Button */
+        .back-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .back-button a {
+            text-decoration: none;
+            color: #0077cc;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbot-container">
+        <h2>Talk to a Chatbot</h2>
+        <div class="chatbot-image">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.lY5-Fq39Ccy5xCKHkTiHbgHaHa&pid=Api&P=0&h=180" alt="Chatbot Image">
+        </div>
+
+        <div class="chat-history">
+            <div class="bot-message">Welcome to our chatbot! How can I assist you today?</div>
+        </div>
+
+        <form id="chatForm">
+            <input type="text" id="userInput" placeholder="Type your message...">
+            <input type="submit" value="Send">
+        </form>
+
+        <div class="back-button">
+            <a href="index.html#aboutSection">Go Back</a>
+        </div>
+    </div>
+
+    <script>
+        const chatForm = document.getElementById('chatForm');
+        const userInput = document.getElementById('userInput');
+
+        chatForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const userMessage = userInput.value.trim();
+            appendUserMessage(userMessage);
+            processUserMessage(userMessage);
+            userInput.value = '';
+        });
+
+        function appendUserMessage(message) {
+            const chatHistory = document.querySelector('.chat-history');
+            const userMessageElement = document.createElement('div');
+            userMessageElement.classList.add('user-message');
+            userMessageElement.textContent = message;
+            chatHistory.appendChild(userMessageElement);
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+
+        function appendBotMessage(message) {
+            const chatHistory = document.querySelector('.chat-history');
+            const botMessageElement = document.createElement('div');
+            botMessageElement.classList.add('bot-message');
+            botMessageElement.textContent = message;
+            chatHistory.appendChild(botMessageElement);
+            chatHistory.scrollTop = chatHistory.scrollHeight;
+        }
+
+        function processUserMessage(userMessage) {
+            const responses = {
+                "hello": "Hi there! How can I assist you today?",
+                "how are you": "I'm just a chatbot, but I'm here to help you!",
+                "what is your name": "I'm your friendly chatbot, ready to chat with you.",
+                "bye": "Goodbye! Have a great day!",
+                "thank you": "You're welcome! Let me know if you need anything else."
+            };
+
+            let botResponse = "I'm sorry, I don't understand that. Could you please rephrase?";
+            for (const [key, response] of Object.entries(responses)) {
+                if (userMessage.toLowerCase().includes(key)) {
+                    botResponse = response;
+                    break;
+                }
+            }
+
+            setTimeout(() => {
+                appendBotMessage(botResponse);
+            }, 500);
+        }
+    </script>
+</body>
+</html>

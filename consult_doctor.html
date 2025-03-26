@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consult a Doctor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .doctor-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .doctor {
+            text-align: center;
+            width: 200px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .doctor img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #0077cc;
+            margin-bottom: 10px;
+        }
+        .doctor h3 {
+            margin: 0;
+        }
+        .doctor p {
+            margin-bottom: 10px;
+        }
+        .doctor button {
+            background-color: #0077cc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .doctor button:hover {
+            background-color: #005580;
+        }
+        .conference-call {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .conference-call h2 {
+            margin-top: 0;
+        }
+        .conference-call p {
+            margin: 10px 0;
+        }
+        .conference-call button {
+            background-color: #0077cc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .conference-call button:hover {
+            background-color: #005580;
+        }
+        .back-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .back-button a {
+            color: #0077cc;
+            text-decoration: none;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="doctor-container">
+        <div class="doctor">
+            <img src="https://happytravel.viajes/wp-content/uploads/2020/04/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" alt="Doctor Profile Picture">
+            <h3>Dr. TEJ KUMAR</h3>
+            <p>Gynecologist</p>
+            <button>Send request</button>
+        </div>
+        <div class="doctor">
+            <img src="https://happytravel.viajes/wp-content/uploads/2020/04/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" alt="Doctor Profile Picture">
+            <h3>Dr. RAHUL</h3>
+            <p>Ophthalmologist</p>
+            <button>Send request</button>
+        </div>
+        <div class="doctor">
+            <img src="https://happytravel.viajes/wp-content/uploads/2020/04/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" alt="Doctor Profile Picture">
+            <h3>Dr. PRANAHITHA</h3>
+            <p>Cardiologist</p>
+            <button>Send request</button>
+        </div>
+        <div class="doctor">
+            <img src="https://happytravel.viajes/wp-content/uploads/2020/04/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" alt="Doctor Profile Picture">
+            <h3>Dr. RAJESH</h3>
+            <p>Orthopedic Surgeon</p>
+            <button>Send request</button>
+        </div>
+        <div class="doctor">
+            <img src="https://happytravel.viajes/wp-content/uploads/2020/04/146-1468479_my-profile-icon-blank-profile-picture-circle-hd.png" alt="Doctor Profile Picture">
+            <h3>Dr. SWETHA</h3>
+            <p>Psychiatrist</p>
+            <button>Send request</button>
+        </div>
+    </div>
+
+    <div class="conference-call">
+        <h2>Conference Call with Selected Doctor</h2>
+        <p>You are about to start a conference call with the selected doctor. Please click the button below to initiate the call.</p>
+        <button onclick="startConferenceCall()">Start Conference Call</button>
+    </div>
+
+    <script>
+        function startConferenceCall() {
+            // Add your logic to start the conference call here
+            alert("Starting conference call...");
+            // You can use third-party libraries or services for conference calls
+            // For demonstration purposes, simply showing an alert
+        }
+    </script>
+    <div class="back-button">
+        <a href="index.html#aboutSection">Go Back</a>
+    </div>
+</body>
+</html>

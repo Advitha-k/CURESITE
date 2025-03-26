@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CURESITE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-n8hjdmYfLDwxBb4vgI6b0W5L33q1yQ5/sSCfykGQb50/94yUO4IMoHfvm4DQTfS9xFrTIvgEeu1e6G7JgX4P5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #cce6ff; /* Light blue background */
+            color: #333; /* Dark gray text color */
+        }
+        header {
+            background-color: #0077cc; /* Dark blue header background */
+            color: #fff; /* White header text color */
+            padding: 10px 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        header img {
+            width: 50px; /* Adjust the size of the logo */
+            height: 50px;
+            margin-right: 10px; /* Add some space between the logo and title */
+        }
+        nav {
+            background-color: #005580; /* Dark blue navigation background */
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff; /* White navigation text color */
+            text-decoration: none;
+            padding: 0 10px;
+        }
+        section {
+            padding: 20px;
+        }
+        footer {
+            background-color: #005580; /* Dark blue footer background */
+            color: #fff; /* White footer text color */
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .additional-options {
+            display: none;
+        }
+        .show-options {
+            display: block;
+        }
+        button {
+            background-color: #0077cc; /* Dark blue button background */
+            color: #fff; /* White button text color */
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #005580; /* Darker blue on hover */
+        }
+        .home-content {
+            text-align: center;
+        }
+        .home-content img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .medicine-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .medicine {
+            text-align: center;
+            width: 200px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .medicine img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid #0077cc;
+            margin-bottom: 10px;
+        }
+        .medicine h3 {
+            margin: 0;
+        }
+        .medicine p {
+            margin-bottom: 10px;
+        }
+        .medicine button {
+            background-color: #0077cc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .medicine button:hover {
+            background-color: #005580;
+        }
+        .cart {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .cart h2 {
+            margin-top: 0;
+        }
+        .cart button {
+            background-color: #0077cc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .cart button:hover {
+            background-color: #005580;
+        }
+    </style>
+    <style>
+        /* Basic Styling for the Section */
+        #buyMedicinesSection {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    
+        .medicine-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+    
+        .medicine {
+            background-color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 250px;
+            margin-bottom: 20px;
+        }
+    
+        .medicine img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    
+        .medicine h3 {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+    
+        .medicine p {
+            font-size: 1rem;
+            color: #555;
+        }
+    
+        .medicine button {
+            background-color:  #0994f7;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        .medicine button:hover {
+            background-color: #0994f7;
+        }
+    
+        .cart {
+            margin-top: 30px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    
+        .cart h2 {
+            font-size: 1.5rem;
+            text-align: center;
+        }
+    
+        .cart ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+    
+        .cart ul li {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+    
+        /* Cart Buttons Styling */
+        .cart-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+    
+        .action-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px; /* Oval Shape */
+            cursor: pointer;
+            font-size: 1rem;
+            width: 48%; /* Ensure they stay side by side */
+            text-align: center;
+        }
+    
+        .action-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <style>
+        /* Add the CSS for oval buttons */
+        button {
+            padding: 10px 20px; /* Adjust padding to make the button oval */
+            border-radius: 30px; /* Make the button oval */
+            background-color: #007bff;
+            color: white; /* Text color */
+            border: none; /* Remove default border */
+            cursor: pointer; /* Add a pointer cursor on hover */
+            font-size: 16px; /* Font size */
+            transition: background-color 0.3s ease; /* Smooth background color transition */
+        }
+
+        button:hover {
+            background-color: #6381a9; /* Darker green when hovered */
+        }
+
+        .edit-profile-form button {
+            margin-right: 10px; /* Add space between the save and cancel buttons */
+        }
+    </style>
+    <style>
+/* Base styles for the section */
+#homeSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    background: #f7f7f7; /* Light background */
+    padding: 15px; /* Reduced padding */
+    box-sizing: border-box;
+    position: relative; /* Ensure content stays positioned correctly */
+}
+
+/* Home content container */
+.home-content {
+    max-width: 350px; /* Reduced max width */
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px; /* Reduced padding */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Styling for headings and paragraphs */
+.home-content h2 {
+    font-size: 22px; /* Reduced font size */
+    color: #0056b3;
+    margin-bottom: 8px;
+}
+
+.home-content p {
+    font-size: 12px; /* Reduced font size */
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* Image styling */
+.home-content img {
+    width: 80%; /* Reduced image width */
+    max-width: 300px; /* Further reduced max width */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Button styles */
+button {
+    padding: 8px 20px; /* Reduced padding */
+    font-size: 14px; /* Reduced font size */
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    border-radius: 20px; /* Reduced border-radius */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #456fa0;
+    transform: translateY(-1px); /* Slight lift effect */
+}
+
+/* Additional options buttons */
+.additional-options button {
+    background-color: #007bff;
+    padding: 8px 20px; /* Reduced padding */
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-size: 14px; /* Reduced font size */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.additional-options button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+</style>
+
+    <script>
+        function showOptions(sectionId, optionId) {
+            // Hide all sections
+            var allSections = document.querySelectorAll('section');
+            allSections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+            // Show the specific section
+            var section = document.getElementById(sectionId);
+            section.style.display = 'block';
+            // Hide all additional options
+            var allOptions = document.querySelectorAll('.additional-options');
+            allOptions.forEach(function(option) {
+                option.classList.remove('show-options');
+            });
+            // Show the specific additional options
+            var option = document.getElementById(optionId);
+            option.classList.add('show-options');
+        }
+        
+    </script>
+</head>
+
+<body>
+    <header>
+        <img src="CURESITE LOGO.png" alt="CURESITE Logo">
+        <h1>CURESITE</h1>
+    </header>
+    <nav>
+        <a href="#" onclick="showOptions('homeSection', 'homeOptions')">Home</a>
+        <a href="#" onclick="showOptions('aboutSection', 'aboutOptions')">About</a>
+        <a href="find_hospitals.html">Search hospitals</a>
+        <a href="#" onclick="showOptions('buyMedicinesSection', 'buyMedicinesOptions')">Buy medicines</a>
+        <a href="#" onclick="showOptions('contactSection', 'contactOptions')">Contact</a>
+        <a href="#" onclick="showOptions('profileSection', 'profileOptions')">
+            <i class="fas fa-user" style="margin-right: 5px;"></i>Profile
+        </a>
+    </nav>
+    
+    <section id="homeSection">
+        <div class="home-content">
+            <h2>Welcome to CURESITE</h2>
+            <p>CURESITE: the only cure for all your illness...</p>
+            <p>Get started today and take control of your health!</p>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3PIivI2L7tF-5NzKGEInI0iNBzqNw3Wwrp0TN-rpmnw&s" alt="Doctor">
+            <p>A HAPPY FAMILY, A HAPPY LIFE</p>
+            <a href="#homeSection" class="home-button">Go to Home</a>
+            <button onclick="window.location.href = 'emergencycall.html';">Call for Emergency</button>
+        </div>
+        <div class="additional-options" id="homeOptions">
+            <!-- Additional options for Home section -->
+        </div>
+    </section>
+    <section id="aboutSection">
+        <h2>Services we provide:</h2>
+        <div class="additional-options" id="aboutOptions">
+            <!-- Additional options for About section -->
+            <button onclick="window.location.href = 'post_illness.html';">Post Your Illness Online</button>
+            <button onclick="window.location.href = 'chatbot.html';">Talk to a chatbot</button>
+            <button onclick="window.location.href = 'consult_doctor.html';">Consult a doctor</button>
+            <button onclick="window.location.href = 'treatment.html';">Get treatment at home.</button>
+            <button onclick="window.location.href = 'emergencycall.html';">Medication Emergency</button>
+            <button>Diagnosis at home.</button>
+        </div>
+    </section>
+    <section id="buyMedicinesSection">
+        <div class="medicine-container">
+            <!-- Medicine 1 -->
+            <div class="medicine">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQTG6VIHRJRQGy7OrM4l2-u6qCP1gkAKVB1A&s" alt="dolo">
+                <h3>Dolo 650</h3>
+                <p>Used for: fever, headache, menstrual cramps etc.</p>
+                <p>Price: 250/-</p>
+                <button onclick="addToCart('Dolo 650', 250)">Add to Cart</button>
+                <button>Buy</button>
+            </div>
+    
+            <!-- Medicine 2 -->
+            <div class="medicine">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.YwnI3T9a_KW_JGzgSTsyzwHaEa&pid=Api&P=0&h=180" alt="Diclofenac">
+                <h3>Diclofenac</h3>
+                <p>Description: Pain killer</p>
+                <p>Price: 105/-</p>
+                <button onclick="addToCart('Diclofenac', 105)">Add to Cart</button>
+                <button>Buy</button>
+            </div>
+            <div class="medicine">
+                <img src="https://medizzo.com/cdn/shop/products/MontekLC.webp?v=1676375906" alt="montec lc">
+                <h3>Montec Lc</h3>
+                <p>Description: cold,cough</p>
+                <p>Price: 115-</p>
+                <button onclick="addToCart('Diclofenac', 105)">Add to Cart</button>
+                <button>Buy</button>
+            </div>
+        </div>
+    
+        <!-- Cart Section -->
+        <div class="cart">
+            <h2>Your Cart Items</h2>
+            <ul id="cartItems">
+                <!-- Cart items will be displayed here -->
+            </ul>
+            <div class="cart-buttons">
+                <button onclick="checkout()" class="action-btn">Proceed to Checkout</button>
+                <button onclick="clearCart()" class="action-btn">Clear Cart</button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Add JavaScript below -->
+    <script>
+        // Cart to store added items
+        let cart = [];
+    
+        // Function to add item to cart
+        function addToCart(itemName, itemPrice) {
+            // Create a new item object
+            const item = {
+                name: itemName,
+                price: itemPrice
+            };
+    
+            // Add the item to the cart
+            cart.push(item);
+    
+            // Display the cart items
+            displayCart();
+        }
+    
+        // Function to display the cart items
+        function displayCart() {
+            const cartItemsList = document.getElementById("cartItems");
+    
+            // Clear the current cart display
+            cartItemsList.innerHTML = '';
+    
+            // Loop through each item in the cart and add it to the list
+            cart.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = `${item.name} - Price: ${item.price}/-`;
+                cartItemsList.appendChild(li);
+            });
+        }
+    
+        // Function to proceed to checkout
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Your cart is empty! Add items to the cart first.");
+            } else {
+                let totalAmount = 0;
+                cart.forEach(item => totalAmount += item.price);
+                alert(`Proceeding to checkout. Total amount: ${totalAmount}/-`);
+                // You can implement checkout functionality here, like redirecting to another page or displaying a modal
+            }
+        }
+    
+        // Function to clear the cart
+        function clearCart() {
+            // Clear the cart array
+            cart = [];
+    
+            // Display the empty cart
+            displayCart();
+    
+            // Optionally, you can display a message that the cart has been cleared
+            alert("Your cart has been cleared!");
+        }
+    </script>
+    
+    <section id="contactSection">
+        <h2>Contact Us</h2>
+        <p>Talk to us for any more information..</p>
+        <div class="additional-options" id="contactOptions">
+            <!-- Additional options for Contact section -->
+            <button>Email Us</button>
+            <button>Visit Our Office</button>
+            <button>Send a Message</button>
+            <button>Contact the delivery man</button>
+        </div>
+    </section>
+    <!-- Profile Section -->
+<section id="profileSection" style="display: none;">
+    <h2>Your Profile</h2>
+    <div class="profile-container">
+        <div class="profile-avatar">
+            <img src="https://via.placeholder.com/150" alt="Profile Picture">
+            <p><strong>John Doe</strong></p>
+        </div>
+        <div class="profile-details">
+            <p><strong>Email:</strong> john.doe@example.com</p>
+            <p><strong>Phone:</strong> +1-234-567-890</p>
+            <p><strong>Address:</strong> 123 Main St, Springfield, USA</p>
+            <button onclick="editProfile()">Edit Profile</button>
+        </div>
+    </div>
+    <div class="edit-profile-form" style="display: none;">
+        <h3>Edit Profile</h3>
+        <form onsubmit="saveProfile(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" value="John Doe"><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" value="john.doe@example.com"><br><br>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" value="+1-234-567-890"><br><br>
+            <label for="address">Address:</label>
+            <textarea id="address">123 Main St, Springfield, USA</textarea><br><br>
+            <button type="submit">Save</button>
+            <button type="button" onclick="cancelEdit()">Cancel</button>
+        </form>
+    </div>
+</section>
+
+<style>
+    #profileSection {
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        margin: 20px auto;
+        max-width: 600px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .profile-avatar {
+        text-align: center;
+    }
+
+    .profile-avatar img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 4px solid #0077cc;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
+    }
+
+    .profile-details {
+        flex: 1;
+    }
+
+    .profile-details p {
+        margin: 10px 0;
+        font-size: 16px;
+    }
+
+    .profile-details button {
+        background-color: #0077cc;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .profile-details button:hover {
+        background-color: #005580;
+    }
+
+    .edit-profile-form {
+        margin-top: 20px;
+    }
+
+    .edit-profile-form h3 {
+        margin-bottom: 20px;
+    }
+
+    .edit-profile-form input,
+    .edit-profile-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+
+    .edit-profile-form button {
+        background-color: #0077cc;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .edit-profile-form button:hover {
+        background-color: #005580;
+    }
+</style>
+
+<script>
+    function editProfile() {
+        document.querySelector('.profile-details').style.display = 'none';
+        document.querySelector('.edit-profile-form').style.display = 'block';
+    }
+
+    function cancelEdit() {
+        document.querySelector('.edit-profile-form').style.display = 'none';
+        document.querySelector('.profile-details').style.display = 'block';
+    }
+
+    function saveProfile(event) {
+        event.preventDefault();
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const address = document.getElementById('address').value;
+
+        document.querySelector('.profile-avatar p').textContent = name;
+        document.querySelector('.profile-details').innerHTML = `
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Phone:</strong> ${phone}</p>
+            <p><strong>Address:</strong> ${address}</p>
+            <button onclick="editProfile()">Edit Profile</button>
+        `;
+
+        cancelEdit();
+    }
+</script>
+
+    
+    
+</body>
+</html>
